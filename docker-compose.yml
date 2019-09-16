@@ -1,0 +1,21 @@
+version: "3"
+services:
+    database:
+        container_name: database
+        image: mysql:5.7
+        env_file: .env
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - ./database/mysql:/var/lib/mysql
+        ports:
+            - "3306:3306"
+    emulator:
+        container_name: emulator
+        env_file: .env
+        build: emulator
+        ports:
+            - "6900:6900"
+            - "6121:6121"
+            - "5121:5121"
+        depends_on:
+            - database
