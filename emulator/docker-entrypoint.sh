@@ -25,7 +25,6 @@ setup_init () {
     if ! [ -z "${SET_MOTD}" ]; then echo -e "${SET_MOTD}" > /opt/rAthena/conf/motd.txt; fi
     setup_mysql_config
     setup_config
-    enable_custom_npc
 }
 
 setup_mysql_config () {
@@ -134,9 +133,6 @@ setup_config () {
     if ! [ -z "${SET_ARROW_DECREMENT}" ]; then echo -e "arrow_decrement: ${SET_ARROW_DECREMENT}" >> /opt/rAthena/conf/import/battle_conf.txt; fi
 }
 
-enable_custom_npc () {
-    echo -e "npc: npc/custom/gab_npc.txt" >> /opt/rAthena/npc/scripts_custom.conf
-}
 
 #PUBLICIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
