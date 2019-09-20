@@ -13,8 +13,6 @@ services:
         container_name: emulator
         env_file: .env
         build: .
-        volumes:
-            - .:/emulator
         ports:
             - "6900:6900"
             - "6121:6121"
